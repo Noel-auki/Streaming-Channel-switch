@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://player.live-video.net/1.31.0/amazon-ivs-player.min.js"></script>
+</head>
+<body>
+    <h1>Live Stream Player</h1>
+    <video id="video-player" controls playsinline></video>
+    <div id="noStreamMessage" class="no-stream" style="display: none;">No live stream available</div>
+    
+    <div class="previews">
+        <div class="preview-container">
+            <video id="preview1" class="preview" playsinline muted></video>
+            <div id="noPreview1" class="no-preview" style="display: none;">No preview available</div>
+        </div>
+        <div class="preview-container">
+            <video id="preview2" class="preview" playsinline muted></video>
+            <div id="noPreview2" class="no-preview" style="display: none;">No preview available</div>
+        </div>
+        <div class="preview-container">
+            <video id="preview3" class="preview" playsinline muted></video>
+            <div id="noPreview3" class="no-preview" style="display: none;">No preview available</div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
