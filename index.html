@@ -9,21 +9,16 @@
 </head>
 <body>
     <h1>Live Stream Player</h1>
-    <video id="video-player" controls playsinline></video>
-    <div id="noStreamMessage" class="no-stream" style="display: none;">No live stream available</div>
-    
-    <div class="previews">
-        <div class="preview-container">
+    <div class="video-container ">
+    <video id="player1" class="video-player" controls playsinline></video>
+    <video id="player2" class="video-player" style="display: none;" controls playsinline></video>
+    </div>
+    <div id="previews" class="previews">
+        <div class="preview-container" data-stream="output1">
             <video id="preview1" class="preview" playsinline muted></video>
-            <div id="noPreview1" class="no-preview" style="display: none;">No preview available</div>
         </div>
-        <div class="preview-container">
+        <div class="preview-container" data-stream="output2">
             <video id="preview2" class="preview" playsinline muted></video>
-            <div id="noPreview2" class="no-preview" style="display: none;">No preview available</div>
-        </div>
-        <div class="preview-container">
-            <video id="preview3" class="preview" playsinline muted></video>
-            <div id="noPreview3" class="no-preview" style="display: none;">No preview available</div>
         </div>
     </div>
     
