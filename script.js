@@ -49,12 +49,19 @@
     }
 
     function crossfade(fromGainNode, toGainNode) {
-        const duration = 3;  // Set the crossfade duration (in seconds)
-        fromGainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration); // Fade out
-        toGainNode.gain.setValueAtTime(0.5, audioCtx.currentTime);  // Start with a low volume
-        toGainNode.gain.exponentialRampToValueAtTime(1, audioCtx.currentTime );  // Fade in
+        const duration = 3;  // Crossfade duration in seconds
+        const startTime = audioCtx.currentTime;
+        const fadeOutEndTime = startTime + duration;
+        const fadeInStartTime = startTime + duration * 0.5; // Start fading in halfway through the fade out
+    
+        // Smoothly fade out the current stream
+        fromGainNode.gain.setValueAtTime(fromGainNode.gain.value, startTime); // Ensure we start at the current value
+        fromGainNode.gain.linearRampToValueAtTime(0.01, fadeOutEndTime); // Fade out to nearly silent
+    
+        // Fade in the new stream slightly before the old one has finished fading out
+        toGainNode.gain.setValueAtTime(0.5, startTime); // Start very low to prevent audio pops
+        toGainNode.gain.linearRampToValueAtTime(1, fadeOutEndTime); // Ramp to full volume
     }
-
     function handlePreviewClick(previewId) {
         if (previewId === 'output1') {
             document.getElementById('player1').style.display = 'block';
