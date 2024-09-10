@@ -51,7 +51,7 @@
     function crossfade(fromGainNode, toGainNode) {
         const duration = 3;  // Set the crossfade duration (in seconds)
         fromGainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration); // Fade out
-        toGainNode.gain.setValueAtTime(0.01, audioCtx.currentTime);  // Start with a low volume
+        toGainNode.gain.setValueAtTime(0.5, audioCtx.currentTime);  // Start with a low volume
         toGainNode.gain.exponentialRampToValueAtTime(1, audioCtx.currentTime );  // Fade in
     }
 
